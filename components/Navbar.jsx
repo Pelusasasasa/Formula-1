@@ -32,13 +32,14 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         backgroundColor: '#fff',
+        borderRadius: 50,
     },
     logo: {
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
         height: '100%',
-        marginLeft: 10
+
     },
     title: {
         alignSelf: 'center',
