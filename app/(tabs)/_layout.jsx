@@ -14,15 +14,9 @@ export default function TabsLayout(){
                         title: 'Home'
                     }}/>
                     <Tabs.Screen name="pilots"/>
+                    <Tabs.Screen name="teams"/>
+                    <Tabs.Screen name="racings"/>
                 </Tabs>
             </View>
         )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        width: 100,
-        flexDirection: 'row',
-        gap: 15
-    }
-})

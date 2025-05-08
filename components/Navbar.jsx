@@ -1,14 +1,15 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
-import { StyleSheet, Text, View } from "react-native";
+import { router } from "expo-router";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 export default function NavBar(){
     return (
         <View style={styles.container}>
             <View style={styles.logoContainer}>
-                <View style={styles.logoContainer}>
+                <Pressable style={styles.logoContainer} onPress={() => router.push('/')}>
                     <Image contentFit="contain" source={require('../assets/logo.png')} style={styles.logo}/>
-                </View>
+                </Pressable>
                 <Text style={styles.title}>F1 Mobile</Text>
             </View>
 

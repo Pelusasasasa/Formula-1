@@ -2,19 +2,23 @@ import { Feather, Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import { router } from "expo-router";
 import { FlatList, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import { globalStyles } from "../../styles/global";
 
 const pantallas = [
     {
         text: 'Pilotos',
-        icon: 'people-outline'
+        icon: 'people-outline',
+        direccion: 'pilots'
     },
     {
         text: 'Equipos',
-        icon: 'flag-outline'
+        icon: 'flag-outline',
+        direccion: 'teams'
     }, 
     {
         text: 'Carreras',
-        icon: 'calendar-clear-outline'
+        icon: 'calendar-clear-outline',
+        direccion: 'racings'
     },
     {
         text: 'Competiciones',
@@ -25,14 +29,14 @@ const pantallas = [
 export default function Home(){
 
     const renderItem = ({item}) => (
-        <Pressable style={styles.pantallacardStyle} onPress={() => router.push('/pilots')}>
+        <Pressable style={styles.pantallacardStyle} onPress={() => router.push(`/${item.direccion}`)}>
             <Ionicons name={item.icon} style={styles.pantallaCardIconStyle} size={40} color='red'/>
             <Text style={styles.pantallaCardTextStyle}>{item.text}</Text>
         </Pressable>
     )
 
     return (
-        <View style={styles.container}>
+        <View style={globalStyles.container}>
             <View style={styles.inputContainer}>
                 <Feather name="search" size={20} color="#fff" style={ styles.icon } />
                 <TextInput placeholderTextColor='#999' placeholder="Buscar Pilotos, equipos..." style={styles.input}/>
@@ -54,11 +58,6 @@ export default function Home(){
 
 
 const styles = StyleSheet.create({
-    container: {
-        paddingHorizontal: 20,
-        height: '100%',
-        backgroundColor: '#15151e'
-    },
     inputContainer: {
         position: 'relative',
         justifyContent: 'center',

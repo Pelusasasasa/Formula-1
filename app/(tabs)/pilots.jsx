@@ -1,11 +1,20 @@
 import { Ionicons } from "@expo/vector-icons";
+import { Image } from "expo-image";
 import { FlatList, StyleSheet, Text, View } from "react-native";
+import { globalStyles } from "../../styles/global";
 
 const pilotos = [
     {
         name: 'Max Verstappen',
         nacionalidad: 'Paises Bajos',
+        image: 'https://media.api-sports.io/formula-1/drivers/50.png',
         numero: 1
+    },
+    {
+        name: 'Franco Colapinto',
+        nacionalidad: 'Argentina',
+        image: 'https://media.api-sports.io/formula-1/drivers/88.png',
+        numero: 45
     },
 ]
 
@@ -13,6 +22,7 @@ export default function Pilots(){
 
     const renderItem = ({item}) => (
         <View style={styles.pilotoCard}>
+            <Image source={item.image} style={styles.pilotoImage}/>
             <Text style={styles.pilotoCardName}>{item.name}</Text>
             <View style={styles.nacionalidadContainer}>
                 <Ionicons name='flag-outline' size={15} color='#fff'/>
@@ -23,35 +33,29 @@ export default function Pilots(){
     )
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Pilotos de F1</Text>
+        <View style={globalStyles.container}>
+            <Text style={globalStyles.title}>Pilotos de F1</Text>
             <FlatList
                 data={pilotos}
                 keyExtractor={elem => elem.numero}
                 renderItem={renderItem}
+                numColumns={2}
+                columnWrapperStyle={{ justifyContent: 'space-between' }} // opcional
+                contentContainerStyle={{ padding: 16 }}
             />
         </View>
     )
 };
 
 const styles = StyleSheet.create({
-    container: {
-        paddingHorizontal: 20,
-        height: '100%',
-        backgroundColor: '#15151e'
-    },
-    title: {
-        fontSize: 30,
-        color: '#fff',
-        marginTop: 20,
-    },
     pilotoCard:{
+        marginVertical: 20,
         width: '48%',
+        height: '100%',
         backgroundColor: '#333',
         borderRadius: 8,
         justifyContent: 'center',
         alignItems: 'center',
-        paddingHorizontal: 15
     },
     pilotoCardName: {
         fontSize: 20,
@@ -60,19 +64,26 @@ const styles = StyleSheet.create({
     nacionalidadContainer: {
         flexDirection: 'row',
         gap: '10',
-        marginTop: 7
+        paddingTop: 10,
     },
     nacionalidadText:{
         color: '#fff',
+        
         size: 20
     },
     number: {
-        marginTop: 10,
-        borderRadius: 8,
-        paddingHorizontal: 6,
-        paddingVertical: 2,
+        borderRadius: 12,
         color: '#fff',
         backgroundColor: 'red',
-        marginBottom: 10,
+        marginTop: 20,
+        paddingVertical: 3,
+        paddingHorizontal: 5
+    },
+    pilotoImage: {
+        width: 100,
+        height: 100,
+        borderRadius: 100,
+        borderColor: 'red',
+        borderWidth: 1
     }
 });
