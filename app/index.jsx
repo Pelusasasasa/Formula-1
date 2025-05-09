@@ -2,7 +2,7 @@ import { Feather, Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import { router } from "expo-router";
 import { FlatList, Pressable, StyleSheet, Text, TextInput, View } from "react-native";
-import { globalStyles } from "../../styles/global";
+import { globalStyles } from "../styles/global";
 
 const pantallas = [
     {
@@ -31,7 +31,8 @@ const pantallas = [
     },
     {
         text: 'Clasificacion Equipos',
-        icon: 'medal-outline'
+        icon: 'medal-outline',
+        direccion: 'rankingTeams'
     },
 ];
 

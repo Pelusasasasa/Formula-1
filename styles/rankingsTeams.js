@@ -1,11 +1,11 @@
 import { StyleSheet } from "react-native";
 
-export const rankingPilotsStyles = StyleSheet.create({
+export const rankingTeamsStyles = StyleSheet.create({
     card: {
         backgroundColor: '#333',
         padding: 10,
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        alignItems: 'center',
     },
     position:{ 
         color: '#fff',
@@ -13,14 +13,21 @@ export const rankingPilotsStyles = StyleSheet.create({
         backgroundColor: '#3a3a4d',
         padding: 5,
         borderRadius: 100,
-        alignSelf: 'center'
+        alignSelf: 'center',
+        marginRight: 10,
     },  
+    imageContainer:{
+        justifyContent:'flex-start',
+        width: 60,
+        alignItems: 'center'
+    },
     image:{
         width: 50,
         height: 50,
-        borderRadius: 50,
+        borderRadius: 10,
         borderWidth: 1,
-        borderColor: 'red'
+        borderColor: 'red',
+        alignSelf: 'center'
     },
     name: {
         fontSize: 20,
@@ -36,6 +43,7 @@ export const rankingPilotsStyles = StyleSheet.create({
         padding: 5,
         borderRadius: 10,
         alignSelf: 'center',
+        marginLeft: 'auto',
         color: '#fff',
         fontSize: 18
     }

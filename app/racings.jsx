@@ -1,7 +1,7 @@
 import { StyleSheet, FlatList, Text, View } from "react-native";
-import { globalStyles } from "../../styles/global";
+import { globalStyles } from "../styles/global";
 import { Ionicons } from "@expo/vector-icons";
-import { racingStyles } from "../../styles/rancing";
+import { racingStyles } from "../styles/rancing";
 
 const data = [
     {

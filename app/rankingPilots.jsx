@@ -1,7 +1,7 @@
 import { View, Text, FlatList } from 'react-native'
-import { globalStyles } from '../../styles/global'
+import { globalStyles } from '../styles/global'
 import { Image } from 'expo-image'
-import { rankingPilotsStyles } from '../../styles/rankingsPilots'
+import { rankingPilotsStyles } from '../styles/rankingsPilots'
 
 
 const data = [
@@ -19,7 +19,7 @@ const data = [
     }
 ]
 
-export default function rankingPilots() {
+export default function RankingPilots() {
 
     const renderItem = ({item}) => (
         
@@ -30,7 +30,7 @@ export default function rankingPilots() {
                 <Text style={rankingPilotsStyles.name}>{item.driver.name}</Text>
                 <Text style={rankingPilotsStyles.teamName}>{item.team.name}</Text>
             </View>
-            <Text style={rankingPilotsStyles.points}>{item.points}</Text>
+            <Text style={rankingPilotsStyles.points}>{item.points} pts</Text>
         </View>
     );
 

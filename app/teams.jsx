@@ -1,5 +1,5 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import { globalStyles } from "../../styles/global";
+import { globalStyles } from "../styles/global";
 import { Image } from "expo-image";
 import { Ionicons } from "@expo/vector-icons";
 

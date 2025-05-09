@@ -8,7 +8,7 @@ export default function NavBar(){
         <View style={styles.container}>
             <View style={styles.logoContainer}>
                 <Pressable style={styles.logoContainer} onPress={() => router.push('/')}>
-                    <Image contentFit="contain" source={require('../assets/logo.png')} style={styles.logo}/>
+                    <Image contentFit="contain" source={require('../assets/icon.png')} style={styles.logo}/>
                 </Pressable>
                 <Text style={styles.title}>F1 Mobile</Text>
             </View>
