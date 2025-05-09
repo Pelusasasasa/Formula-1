@@ -24,6 +24,15 @@ const pantallas = [
         text: 'Competiciones',
         icon: 'trophy-outline'
     },
+    {
+        text: 'Clasificacion Pilotos',
+        icon: 'podium-outline',
+        direccion: 'rankingPilots'
+    },
+    {
+        text: 'Clasificacion Equipos',
+        icon: 'medal-outline'
+    },
 ];
 
 export default function Home(){

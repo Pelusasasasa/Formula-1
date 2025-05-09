@@ -16,6 +16,7 @@ export default function TabsLayout(){
                     <Tabs.Screen name="pilots"/>
                     <Tabs.Screen name="teams"/>
                     <Tabs.Screen name="racings"/>
+                    <Tabs.Screen name="rankingPilots"/>
                 </Tabs>
             </View>
         )

@@ -13,9 +13,3 @@ export default function RootLayout() {
         </Provider>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor:'red'
-    }
-})
