@@ -2,32 +2,26 @@ import { FlatList, StyleSheet, Text, View } from "react-native";
 import { globalStyles } from "../styles/global";
 import { Image } from "expo-image";
 import { Ionicons } from "@expo/vector-icons";
+import { useTeamsStore } from "../hooks";
+import { useEffect } from "react";
 
-const data = [
-    {
-        name: 'Red Bull Racing',
-        image: 'https://media.api-sports.io/formula-1/teams/1.png',
-        nationalidad: 'Austria',
-        director: 'director'
-    },
-    {
-        name: 'Mercedes-AMG',
-        image: 'https://media.api-sports.io/formula-1/teams/2.png',
-        nationalidad: 'Alemania',
-        director: 'Toto Wolf'
-    },
-]
 
 export default function Teams(){
 
+        const {teams, startGetTeams} = useTeamsStore();
+
+        useEffect(() => {
+            startGetTeams()
+        }, [])
+
         const renderItem = ({item}) => (
         <View style={styles.teamCard}>
-            <Image contentFit="contain" source={item.image} style={styles.teamImage}/>
+            <Image contentFit="contain" source={item.logo} style={styles.teamImage}/>
             <View style={styles.infoContainer}>
                 <Text style={styles.teamCardName}>{item.name}</Text>
                 <View style={styles.nacionalidadContainer}>
                     <Ionicons name='flag-outline' size={15} color='#fff'/>
-                    <Text style={styles.nacionalidadText}>{item.nationalidad}</Text>
+                    <Text ellipsizeMode="tail" style={styles.nacionalidadText}>{item.base}</Text>
                 </View>
                 <View style={styles.directorContainer}>
                     <Ionicons name='people-outline' size={15} color='#fff'/>
@@ -41,8 +35,8 @@ export default function Teams(){
         <View style={globalStyles.container}>
             <Text style={globalStyles.title}>Equipos de F1</Text>
             <FlatList
-                data={data}
-                keyExtractor={data.name}
+                data={teams}
+                keyExtractor={teams.name}
                 renderItem={renderItem}
                 contentContainerStyle={{ padding: 16 }}
             />
@@ -65,15 +59,18 @@ const styles = StyleSheet.create({
     teamCardName:{
         fontSize: 20,
         color: '#fff',
+        width: 200,
         marginLeft: 10
     },
     nacionalidadContainer: {
         marginLeft: 10,
         flexDirection: 'row',
-        gap: 10
+        gap: 10,
+        width: 200
     },
     nacionalidadText: {
-        color: '#fff'
+        color: '#fff',
+        flexWrap: 'wrap'
     },  
     teamImage: {
         width: 100,
@@ -87,9 +84,11 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
         flexDirection: 'row',
         gap: 10,
+        width: 200,
         alignItems: 'center'
     },
     director: {
         color: '#fff',
+        flexWrap: 'wrap'
     }
 });

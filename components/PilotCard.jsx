@@ -32,7 +32,8 @@ const styles = StyleSheet.create({
     },
     pilotoCardName: {
         fontSize: 20,
-        color: '#fff'
+        color: '#fff',
+        textAlign: 'center'
     },
     nacionalidadContainer: {
         flexDirection: 'row',

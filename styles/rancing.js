@@ -5,6 +5,7 @@ export const racingStyles  = StyleSheet.create({
     racingContainer:{
         width: '100%',
         borderRadius: 12,
+        marginVertical: 10,
         paddingHorizontal: 10,
         backgroundColor: '#333',
         paddingVertical: 10,

@@ -11,6 +11,18 @@ export const globalStyles  = StyleSheet.create({
         color: '#fff',
         marginTop: 20,
     },
+    text20: {
+        fontSize: 20,
+    },
+    textWhite: {
+        color: '#ffff'
+    },
+    textGray: {
+        color: '#9ca3af'
+    },  
+    textCenter: {
+        textAlign: 'center'
+    },  
 
 
 

@@ -32,6 +32,7 @@ export const rankingTeamsStyles = StyleSheet.create({
     name: {
         fontSize: 20,
         color: '#fff',
+        width: 150,
         fontStyle: 'italic'
     },
     teamName: {

@@ -8,7 +8,8 @@ const pantallas = [
     {
         text: 'Pilotos',
         icon: 'people-outline',
-        direccion: 'pilots'
+        direccion: 'pilots',
+        disabled: true
     },
     {
         text: 'Equipos',
@@ -39,7 +40,10 @@ const pantallas = [
 export default function Home(){
 
     const renderItem = ({item}) => (
-        <Pressable style={styles.pantallacardStyle} onPress={() => router.push(`/${item.direccion}`)}>
+        <Pressable disabled={item.disabled} style={[
+            styles.pantallacardStyle, 
+            item.disabled && {backgroundColor: '', opacity: 0.3}
+            ]} onPress={() => router.push(`/${item.direccion}`)}>
             <Ionicons name={item.icon} style={styles.pantallaCardIconStyle} size={40} color='red'/>
             <Text style={styles.pantallaCardTextStyle}>{item.text}</Text>
         </Pressable>

@@ -7,6 +7,11 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
+    "extra": {
+      "KEY": "c743390c2b691ef922b56447758aa2be",
+      "HOST": "v1.formula-1.api-sports.io",
+      "URL": "https://v1.formula-1.api-sports.io/"
+    },
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",

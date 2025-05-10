@@ -1,8 +1,8 @@
-import { Ionicons } from "@expo/vector-icons";
-import { Image } from "expo-image";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import { globalStyles } from "../styles/global";
 import PilotCard from "../components/PilotCard";
+import { usePilotsStore } from "../hooks/usePilotsStore";
+import { useEffect } from "react";
 
 const pilotos = [
     {
@@ -20,6 +20,12 @@ const pilotos = [
 ]
 
 export default function Pilots(){
+
+    const { startGetPilots } = usePilotsStore();
+
+    useEffect(() => {
+        startGetPilots()
+    }, [])
 
     const renderItem = ({item}) => (
         <PilotCard item={item}/>
