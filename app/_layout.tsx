@@ -4,8 +4,9 @@ import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
 
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { useColorScheme } from '@/presentation/theme/hooks/useColorScheme';
 
+import { MenuRoutes } from '@/constants/Routes';
 import '../global.css';
 
 
@@ -23,10 +24,19 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack screenOptions={{
-        headerShadowVisible: false,
-        headerShown: false
+        headerStyle: {
+          backgroundColor: 'red',
+        },
+        headerTitleStyle: {
+          color: 'white'
+        }
+        
       }}>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        
+        {MenuRoutes.map(({titulo, name}) => (
+          <Stack.Screen key={titulo} name={name} options={{ title: titulo, headerShown: true }}/>
+        ))}
       </Stack>
       <StatusBar style="auto" />
     </ThemeProvider>

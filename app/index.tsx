@@ -1,17 +1,10 @@
-import { Card } from '@/core/menu/interface/card';
+import { MenuRoutes } from '@/constants/Routes';
 import MenuCard from '@/presentation/menu/components/MenuCard';
 import { ThemedText } from '@/presentation/theme/components/ThemedText';
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
-import { View } from 'react-native';
+import { FlatList, View } from 'react-native';
 
-const cards: Card[] = [
-  {
-    titulo: 'Clasificacion de Pilotos',
-    descripcion: 'Ver Standings Actules',
-    icon: "trophy-outline"
-  }
-];
 
 const HomeScreen = () => {
   return (
@@ -52,11 +45,13 @@ const HomeScreen = () => {
       </View>
 
 
-      <View>
-        { cards.map(elem => (
-          <MenuCard key={elem.titulo} icon={`${elem.icon}`} descripcion={elem.descripcion} titulo={elem.titulo}   />
-        ))}
-      </View>
+      <FlatList
+        data={MenuRoutes}
+        className='gap-5 mb-10'
+        keyExtractor={elem => elem.titulo}
+        renderItem={({item} )=> <MenuCard titulo={item.titulo} descripcion={item.descripcion} icon={item.icon} name={item.name}/>}
+       />
+
     </View>
   )
 }
